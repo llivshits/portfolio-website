@@ -1,0 +1,55 @@
+# --- Normalize all text files to LF ---
+* text=auto eol=lf
+
+# --- React, Node & Frontend assets ---
+*.js      text eol=lf
+*.jsx     text eol=lf
+*.ts      text eol=lf
+*.tsx     text eol=lf
+*.css     text eol=lf
+*.scss    text eol=lf
+*.html    text eol=lf
+*.svg     text eol=lf
+*.env*    text eol=lf
+
+# --- Node/Yarn/PNPM lockfiles ---
+package-lock.json   text eol=lf
+yarn.lock           text eol=lf
+pnpm-lock.yaml      text eol=lf
+
+# --- Mark binary files as non-diffable ---
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.exe   binary
+*.dll   binary
+*.dylib binary
+*.so    binary
+*.webp  binary
+*.mp3   binary
+*.mp4   binary
+*.woff  binary
+*.woff2 binary
+*.otf   binary
+*.ttf   binary
+
+# --- Documentation, config, miscellaneous text ---
+*.md    text eol=lf
+*.toml  text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+
+# --- Shell scripts (LF) ---
+*.sh     text eol=lf
+
+=======
+# --- Windows batch/scripts (CRLF) ---
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+
+# --- Misc setup scripts ---
+*.ps1    text eol=crlf
