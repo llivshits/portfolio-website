@@ -6,7 +6,7 @@ import { SiReaddotcv } from "react-icons/si";
 import { GrProjects } from "react-icons/gr";
 import Toggle from "./toggle";
 
-function Header() {
+const Header: React.FC = () => {
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") return "light";
     return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -23,8 +23,13 @@ function Header() {
   }, [theme]);
 
   return (
-    <div className="w-full px-6 py-4 flex items-center justify-between shadow-md bg-white dark:bg-black shadow-md">
-      <h1 className="text-green-500 text-3xl">Len Livshits</h1>
+    <div className="w-full px-6 py-4 flex items-center justify-between shadow-md bg-white dark:bg-black">
+      <Button
+        text="Len Livshits"
+        to="/"
+        uref="header"
+        className="text-green-500 text-3xl hover:text-red-500"
+      />
       <div className="flex justify-end items-center">
         <Toggle
           value={theme === "light" ? "left" : "right"}
@@ -52,19 +57,20 @@ function Header() {
         />
         <Button
           text="Resume"
-          to=""
+          to="/"
+          uref="resume"
           icon=<SiReaddotcv />
           className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
         />
         <Button
           text="Projects"
-          to=""
+          to="/projects"
           icon=<GrProjects />
           className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
         />
       </div>
     </div>
   );
-}
+};
 
 export default Header;

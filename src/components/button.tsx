@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface ButtonProps {
   text?: string;
@@ -9,6 +9,7 @@ interface ButtonProps {
   status?: boolean;
   onClick?: () => void;
   className?: string;
+  uref?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,19 +19,45 @@ const Button: React.FC<ButtonProps> = ({
   to = "",
   className = "",
   status = false,
+  uref = "",
   onClick,
 }) => {
   const navigate = useNavigate();
 
+  const scroll = (elementId: string): boolean => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      if (element.classList.contains("overflow-y-auto")) {
+        (element as HTMLElement).scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        return true;
+      }
+      element.scrollIntoView({ behavior: "smooth" });
+      return true;
+    }
+    return false;
+  };
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (to) {
-      e.preventDefault();
-      navigate(to);
+    e.preventDefault();
+
+    if (uref) {
+      // Scrolling to an element and navigating to it if needed
+      const scrolled = scroll(uref);
+      if (!scrolled && to) {
+        navigate(`${to}#${uref}`);
+      }
+      if (onClick) onClick();
+      return;
     }
 
-    if (onClick) {
-      onClick();
-    }
+    if (to) navigate(to); // Navigating to an element
+
+    if (href) window.open(href, "_blank", "nooopener noreferrer"); // Navigating to external element
+
+    if (onClick) onClick(); // Other
   };
 
   return (
