@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/header";
-import Projectpage from "./components/projectpage";
+import Header from "../components/header";
+import Projectpage from "../components/projectpage";
 
 function Projects() {
   return (
