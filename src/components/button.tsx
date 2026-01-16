@@ -3,19 +3,22 @@ import { useNavigate } from "react-router-dom";
 
 interface ButtonProps {
   text?: string;
-  image?: string;
+  icon?: React.ReactNode;
   href?: string;
   to?: string;
+  status?: boolean;
   onClick?: () => void;
   className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
   text = "",
-  image = "",
+  icon = "",
   href = "",
   to = "",
   className = "",
+  status = false,
+  onClick,
 }) => {
   const navigate = useNavigate();
 
@@ -23,6 +26,10 @@ const Button: React.FC<ButtonProps> = ({
     if (to) {
       e.preventDefault();
       navigate(to);
+    }
+
+    if (onClick) {
+      onClick();
     }
   };
 
@@ -34,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({
       rel={href ? "noopener noreferrer" : undefined}
       className={`inline-flex items-center gap-2 px-4 py-2 ${className}`}
     >
-      {image && <img src={image} alt="" className="w-6 h-6" />}
+      {icon && <span className="text-xl">{icon}</span>}
       {text && <span>{text}</span>}
     </a>
   );
