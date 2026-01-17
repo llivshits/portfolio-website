@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -12,10 +11,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home />,
     errorElement: <NotFound />,
-  },
-  {
-    path: "/projects",
-    element: <Projects />,
   },
 ]);
 

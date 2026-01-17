@@ -64,7 +64,8 @@ const Header: React.FC = () => {
         />
         <Button
           text="Projects"
-          to="/projects"
+          to="/"
+          uref="projects"
           icon=<GrProjects />
           className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
         />

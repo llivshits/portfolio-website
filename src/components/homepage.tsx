@@ -32,7 +32,9 @@ function Homepage() {
             this, I am experienced in both the Microsoft Office and G-Suite sets
             of productivity tools.{" "}
           </p>
-          <Projectspotlight />
+          <div id="projects">
+            <Projectspotlight />
+          </div>{" "}
           <div id="resume">
             <Resume />
           </div>
