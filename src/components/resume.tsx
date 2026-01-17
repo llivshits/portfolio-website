@@ -20,15 +20,23 @@ const Resume = () => {
       <div className="flex gap-8">
         <div className="w-1/2">
           <h1 className="flex justify-center items-center">Education</h1>
-          <li>
-            Bachelor of Science in Computer Science + Philosophy, University of
-            Illinois at Urbana-Champaign, Started Fall 2025, Expected Graduation
-            May 2027, GPA 3.67/4.00
-          </li>
-          <li>
-            High School Diploma, Glenbrook North High Schoool, Started Fall
-            2021, Graduated May 2025, GPA 4.30/4.00
-          </li>
+          <ul className="space-y-2 list-disc list-inside">
+            <li>
+              Bachelor of Science in Computer Science + Philosophy, University
+              of Illinois at Urbana-Champaign, Started Fall 2025, Expected
+              Graduation May 2027, GPA 3.67/4.00
+              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
+                <li>
+                  Related Coursework: Data Structures, Computer Architecture,
+                  Statistics and Probability, Linear Algebra
+                </li>
+              </ul>
+            </li>
+            <li>
+              High School Diploma, Glenbrook North High Schoool, Started Fall
+              2021, Graduated May 2025, GPA 4.30/4.00
+            </li>
+          </ul>
         </div>
         <div className="w-1/2">
           <h1 className="flex justify-center items-center">Work Experience</h1>
