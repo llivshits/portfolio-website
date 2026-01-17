@@ -5,6 +5,7 @@ import Button from "./button";
 const Resume = () => {
   return (
     <div className="w-full flex flex-col gap-8 text-black dark:text-white">
+      <h1 className="text-green-200 text-2xl">Resume</h1>
       <div className="flex justify-center items-center">
         <Button
           text="Download a PDF of my resume!"

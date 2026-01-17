@@ -56,17 +56,17 @@ const Header: React.FC = () => {
           className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
         />
         <Button
-          text="Resume"
-          to="/"
-          uref="resume"
-          icon=<SiReaddotcv />
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
-        />
-        <Button
           text="Projects"
           to="/"
           uref="projects"
           icon=<GrProjects />
+          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+        />
+        <Button
+          text="Resume"
+          to="/"
+          uref="resume"
+          icon=<SiReaddotcv />
           className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
         />
       </div>
