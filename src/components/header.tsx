@@ -17,8 +17,22 @@ const Header: React.FC = () => {
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      // Update favicon for dark mode
+      const favicon = document.querySelector(
+        "link[rel='icon']"
+      ) as HTMLLinkElement;
+      if (favicon) {
+        favicon.href = "/favicon-dark.svg";
+      }
     } else {
       document.documentElement.classList.remove("dark");
+      // Update favicon for light mode
+      const favicon = document.querySelector(
+        "link[rel='icon']"
+      ) as HTMLLinkElement;
+      if (favicon) {
+        favicon.href = "/favicon-light.svg";
+      }
     }
   }, [theme]);
 

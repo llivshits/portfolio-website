@@ -4,7 +4,7 @@
 
 @plugin "tailwind-scrollbar";
 
-/* === Global Styles === */
+/* Global Styles */
 * {
   @apply scroll-smooth;
 }
@@ -13,7 +13,7 @@ body {
   @apply bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50;
 }
 
-/* === Scrollbar Styles === */
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -45,7 +45,7 @@ body {
   );
 }
 
-/* === Typography === */
+/* Typography */
 h1 {
   @apply font-bold tracking-tight;
 }
@@ -54,17 +54,17 @@ h2 {
   @apply font-semibold tracking-tight;
 }
 
-/* === Links & Interactive Elements === */
+/* Links & Interactive Elements */
 a {
   @apply transition-colors duration-200;
 }
 
-/* === Sections === */
+/* Sections */
 section {
   @apply scroll-mt-20;
 }
 
-/* === Utility Classes === */
+/* Utility Classes */
 .fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
