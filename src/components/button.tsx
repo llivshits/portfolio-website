@@ -41,6 +41,12 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Allow external links to work naturally
+    if (href) {
+      if (onClick) onClick();
+      return;
+    }
+
     e.preventDefault();
 
     if (uref) {
@@ -54,8 +60,6 @@ const Button: React.FC<ButtonProps> = ({
     }
 
     if (to) navigate(to); // Navigating to an element
-
-    if (href) window.open(href, "_blank", "nooopener noreferrer"); // Navigating to external element
 
     if (onClick) onClick(); // Other
   };

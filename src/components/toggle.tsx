@@ -45,8 +45,8 @@ const Toggle: React.FC<ToggleProps> = ({
     },
     className:
       current === "left"
-        ? `text-black bg-white dark:bg-black dark:text-white ${classAName}`
-        : `text-white bg-black hover:text-white hover:bg-yellow-500 dark:bg-white dark:text-black dark:hover:text-black dark:hover:bg-black${classBName}`,
+        ? `px-4 py-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-medium transition-colors ${classAName}`
+        : `px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${classAName}`,
   });
 
   const B = React.cloneElement<ButtonProps>(buttonB, {
@@ -58,12 +58,14 @@ const Toggle: React.FC<ToggleProps> = ({
     },
     className:
       current === "right"
-        ? `text-black bg-white dark:bg-black dark:text-white ${classBName}`
-        : `text-white bg-black hover:text-white hover:bg-yellow-500 dark:bg-white dark:text-black dark:hover:text-black dark:hover:bg-black${classBName}`,
+        ? `px-4 py-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-medium transition-colors ${classBName}`
+        : `px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${classBName}`,
   });
 
   return (
-    <div className={`inline-flex gap-2 ${className}`}>
+    <div
+      className={`inline-flex gap-0 rounded-lg border border-gray-200 dark:border-gray-700 p-1 bg-white dark:bg-gray-900 ${className}`}
+    >
       {A}
       {B}
     </div>

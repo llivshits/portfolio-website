@@ -23,14 +23,14 @@ const Header: React.FC = () => {
   }, [theme]);
 
   return (
-    <div className="w-full px-6 py-4 flex items-center justify-between shadow-md bg-white dark:bg-black">
+    <div className="w-full px-8 py-5 flex items-center justify-between bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-sm sticky top-0 z-50">
       <Button
         text="Len Livshits"
         to="/"
         uref="header"
-        className="text-green-500 text-3xl hover:text-red-500"
+        className="text-emerald-600 dark:text-emerald-400 text-3xl font-bold hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
       />
-      <div className="flex justify-end items-center">
+      <div className="flex justify-end items-center gap-2">
         <Toggle
           value={theme === "light" ? "left" : "right"}
           onToggle={(val) => setTheme(val === "left" ? "light" : "dark")}
@@ -40,34 +40,34 @@ const Header: React.FC = () => {
         <Button
           text="Github"
           href="https://github.com/llivshits"
-          icon=<FaGithub />
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+          icon={<FaGithub />}
+          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
         />
         <Button
           text="LinkedIn"
           href="https://www.linkedin.com/in/leonard-livshits/"
-          icon=<FaLinkedin />
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+          icon={<FaLinkedin />}
+          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
         />
         <Button
           text="Email"
           href="mailto:lenliv@gmail.com"
-          icon=<MdEmail />
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+          icon={<MdEmail />}
+          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
         />
         <Button
           text="Projects"
           to="/"
           uref="projects"
-          icon=<GrProjects />
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+          icon={<GrProjects />}
+          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
         />
         <Button
           text="Resume"
           to="/"
           uref="resume"
-          icon=<SiReaddotcv />
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+          icon={<SiReaddotcv />}
+          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
         />
       </div>
     </div>

@@ -4,158 +4,236 @@ import Button from "./button";
 
 const Resume = () => {
   return (
-    <div className="w-full flex flex-col gap-8 text-black dark:text-white">
-      <h1 className="text-green-200 text-2xl">Resume</h1>
-      <div className="flex justify-center items-center">
+    <div className="w-full flex flex-col gap-12 text-gray-900 dark:text-gray-50 animate-fadeIn">
+      <h1 className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+        Resume
+      </h1>
+
+      <div className="flex justify-center">
         <Button
-          text="Download a PDF of my resume!"
+          text="Download PDF"
           onClick={() => {
             const a = document.createElement("a");
             a.href = "/resume.pdf";
             a.download = "resume.pdf";
             a.click();
           }}
-          className="outline-green-500 outline-solid text-black hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+          className="px-6 py-3 bg-emerald-600 dark:bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-md"
         />
       </div>
-      <div className="flex gap-8">
-        <div className="w-1/2">
-          <h1 className="flex justify-center items-center">Education</h1>
-          <ul className="space-y-2 list-disc list-inside">
-            <li>
-              Bachelor of Science in Computer Science + Philosophy, University
-              of Illinois at Urbana-Champaign, Started Fall 2025, Expected
-              Graduation May 2027, GPA 3.67/4.00
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
-                <li>
-                  Related Coursework: Data Structures, Computer Architecture,
-                  Statistics and Probability, Linear Algebra
-                </li>
-              </ul>
+
+      <div className="grid grid-cols-2 gap-8">
+        {/*Education*/}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-emerald-600 dark:border-emerald-400 pb-3">
+            Education
+          </h2>
+          <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+            <li className="space-y-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Bachelor of Science in Computer Science + Philosophy
+              </p>
+              <p className="text-sm">
+                University of Illinois at Urbana-Champaign
+              </p>
+              <p className="text-sm">
+                Started Fall 2025, Expected Graduation May 2027
+              </p>
+              <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                GPA: 3.67/4.00
+              </p>
+              <p className="text-xs italic mt-2">
+                Related Coursework: Data Structures, Computer Architecture,
+                Statistics and Probability, Linear Algebra
+              </p>
             </li>
-            <li>
-              High School Diploma, Glenbrook North High Schoool, Started Fall
-              2021, Graduated May 2025, GPA 4.30/4.00
+            <li className="space-y-2 pt-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                High School Diploma
+              </p>
+              <p className="text-sm">Glenbrook North High School</p>
+              <p className="text-sm">Graduated May 2025</p>
+              <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                GPA: 4.30/4.00
+              </p>
             </li>
           </ul>
         </div>
-        <div className="w-1/2">
-          <h1 className="flex justify-center items-center">Work Experience</h1>
-          <ul className="space-y-2 list-disc list-inside">
-            <li>
-              Certified Trainer, Potbelly Sandwich Shop, February 2023-Present
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
+
+        {/*Work Experience*/}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-emerald-600 dark:border-emerald-400 pb-3">
+            Work Experience
+          </h2>
+          <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+            <li className="space-y-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Certified Trainer
+              </p>
+              <p className="text-sm">Potbelly Sandwich Shop</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                February 2023 - Present
+              </p>
+              <ul className="text-xs space-y-1 mt-2 ml-4 text-gray-600 dark:text-gray-400">
                 <li>
-                  Trained 15 new employees in front and back of house duties
+                  • Trained 15 new employees in front and back of house duties
                 </li>
                 <li>
-                  Handling transactions and customer service, maintaining high
-                  customer satisfaction
+                  • Handling transactions and customer service, maintaining high
+                  satisfaction
                 </li>
-                <li>Expediting and preparing orders during rush hours</li>
+                <li>• Expediting and preparing orders during rush hours</li>
               </ul>
             </li>
-            <li>
-              Team Member, McDonald's, August 2021-February 2023
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
+            <li className="space-y-2 pt-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Team Member
+              </p>
+              <p className="text-sm">McDonald's</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                August 2021 - February 2023
+              </p>
+              <ul className="text-xs space-y-1 mt-2 ml-4 text-gray-600 dark:text-gray-400">
+                <li>• Mentored 4 employees new to the service industry</li>
                 <li>
-                  Mentored 4 employees new to the service industry, instilling a
-                  drive for customer satisfaction
+                  • Processed transactions at 6 different Point of Sales during
+                  peak hours
                 </li>
-                <li>
-                  Processed transactions at 6 different Point of Sales during
-                  peak hours, maintaing speed and efficiency
-                </li>
-                <li>Maintained food safety</li>
+                <li>• Maintained food safety standards</li>
               </ul>
             </li>
           </ul>
         </div>
       </div>
-      <div className="flex gap-8">
-        <div className="w-1/2">
-          <h1 className="flex justify-center items-center">Skills</h1>
-          <ul className="space-y-2 list-disc list-inside">
-            <li>
-              Programming Languages
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
-                <li>Java</li>
-                <li>C#</li>
-                <li>Python</li>
-                <li>C++</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-                <li>Rust</li>
-              </ul>
-            </li>
-            <li>
-              Tools
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
-                <li>Git</li>
-                <li>Unity</li>
-                <li>Blender</li>
-                <li>Pandas</li>
-                <li>React</li>
-                <li>TailwindCSS</li>
-                <li>Scikit-Learn</li>
-                <li>Matplotlib</li>
-                <li>Maven</li>
-                <li>Tauri</li>
-                <li>Vite</li>
-                <li>Jupyter Notebooks</li>
-                <li>SQL</li>
-              </ul>
-            </li>
-            <li>
-              Spoken Languages
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
-                <li>English (fluent)</li>
-                <li>Russian (fluent)</li>
-                <li>Spanish (proficient)</li>
-              </ul>
-            </li>
-          </ul>
+
+      <div className="grid grid-cols-2 gap-8">
+        {/*Skills*/}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-emerald-600 dark:border-emerald-400 pb-3">
+            Skills
+          </h2>
+          <div className="space-y-4 text-gray-700 dark:text-gray-300">
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                Programming Languages
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Java",
+                  "C#",
+                  "Python",
+                  "C++",
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "TypeScript",
+                  "Rust",
+                ].map((lang) => (
+                  <span
+                    key={lang}
+                    className="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium"
+                  >
+                    {lang}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                Tools
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Git",
+                  "Unity",
+                  "Blender",
+                  "Pandas",
+                  "React",
+                  "TailwindCSS",
+                  "Scikit-Learn",
+                  "Matplotlib",
+                  "Maven",
+                  "Tauri",
+                  "Vite",
+                  "Jupyter",
+                  "SQL",
+                ].map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                Languages
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "English (Fluent)",
+                  "Russian (Fluent)",
+                  "Spanish (Proficient)",
+                ].map((lang) => (
+                  <span
+                    key={lang}
+                    className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium"
+                  >
+                    {lang}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="w-1/2">
-          <h1 className="flex justify-center items-center">
-            Leadership and Extracurriculars
-          </h1>
-          <ul className="space-y-2 list-disc list-inside">
-            <li>
-              Member, UIUC SigAIDA, August 2025-Present
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
+
+        {/*Leadership*/}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-emerald-600 dark:border-emerald-400 pb-3">
+            Leadership
+          </h2>
+          <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-sm">
+            <li className="space-y-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Member, UIUC SigAIDA
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                August 2025 - Present
+              </p>
+              <ul className="text-xs space-y-1 mt-2 ml-4 text-gray-600 dark:text-gray-400">
                 <li>
-                  Participate in weekly Machine Learning and AI code puzzles in
-                  Python
+                  • Participate in weekly Machine Learning and AI code puzzles
+                  in Python
                 </li>
                 <li>
-                  Work on semester-long group projects implementing AI and
-                  Machine Learning in various real-world scenarios
+                  • Work on semester-long group projects implementing AI and ML
                 </li>
               </ul>
             </li>
-            <li>
-              Founder and President, GBN Slavic Cultures Club, August 2022-May
-              2025
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
-                <li>Grew club attendance from 0 to 50 members</li>
-                <li>
-                  Built sence of Slavic community through field trips to
-                  Ukranian Village in Chicago
-                </li>
-                <li>Fundraised funds for humanitarian aid in Ukraine</li>
+            <li className="space-y-2 pt-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Founder and President, GBN Slavic Cultures Club
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                August 2022 - May 2025
+              </p>
+              <ul className="text-xs space-y-1 mt-2 ml-4 text-gray-600 dark:text-gray-400">
+                <li>• Grew club attendance from 0 to 50 members</li>
+                <li>• Fundraised funds for humanitarian aid in Ukraine</li>
               </ul>
             </li>
-            <li>
-              Vice President, GBN Coding Club, August 2024-May 2025
-              <ul className="mt-2 ml-4 space-y-1 list-[square] list-inside">
-                <li>Taught Python and HTML skills to 30 club members</li>
-                <li>
-                  Worked in a team to lay foundations for organization of a
-                  multi-day hackathon for the local community
-                </li>
+            <li className="space-y-2 pt-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Vice President, GBN Coding Club
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                August 2024 - May 2025
+              </p>
+              <ul className="text-xs space-y-1 mt-2 ml-4 text-gray-600 dark:text-gray-400">
+                <li>• Taught Python and HTML skills to 30 club members</li>
+                <li>• Organized foundations for a multi-day hackathon</li>
               </ul>
             </li>
           </ul>
