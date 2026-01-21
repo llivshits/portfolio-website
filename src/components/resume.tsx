@@ -1,5 +1,4 @@
 import React from "react";
-import resumePdf from "/Resume-Winter2026.pdf?url";
 import Button from "./button";
 
 const Resume = () => {
@@ -14,8 +13,8 @@ const Resume = () => {
           text="Download PDF"
           onClick={() => {
             const a = document.createElement("a");
-            a.href = "/resume.pdf";
-            a.download = "resume.pdf";
+            a.href = "/Resume-Winter2026.pdf";
+            a.download = "/Resume-Winter2026.pdf";
             a.click();
           }}
           className="px-6 py-3 bg-emerald-600 dark:bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-md"
