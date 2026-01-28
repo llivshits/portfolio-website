@@ -13,8 +13,8 @@ const Resume = () => {
           text="Download PDF"
           onClick={() => {
             const a = document.createElement("a");
-            a.href = "/Resume-Winter2026.pdf";
-            a.download = "/Resume-Winter2026.pdf";
+            a.href = "/Resume-Spring2026.pdf";
+            a.download = "/Resume-Spring2026.pdf";
             a.click();
           }}
           className="px-6 py-3 bg-emerald-600 dark:bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-md"
@@ -65,6 +65,31 @@ const Resume = () => {
             Work Experience
           </h2>
           <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+            <li className="space-y-2">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Course Assistant - CS128H (Rust)
+              </p>
+              <p className="text-sm">
+                University of Illinois, Champaign-Urbana
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                January 2026 - Present
+              </p>
+              <ul className="text-xs space-y-1 mt-2 ml-4 text-gray-600 dark:text-gray-400">
+                <li>
+                  • Held weekly office hours to assist 40+ students in learning
+                  Rust, focusing on concepts such as borrowing, ownership, and
+                  multithreading
+                </li>
+                <li>
+                  • Maintained course website, featuring up to date information
+                  on course policies and instructional videos
+                </li>
+                <li>
+                  • Mentored students in developing a Rust-based final project
+                </li>
+              </ul>
+            </li>
             <li className="space-y-2">
               <p className="font-semibold text-gray-900 dark:text-white">
                 Certified Trainer
