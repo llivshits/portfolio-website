@@ -13,8 +13,8 @@ const Resume = () => {
           text="Download PDF"
           onClick={() => {
             const a = document.createElement("a");
-            a.href = "/Resume-Spring2026.pdf";
-            a.download = "/Resume-Spring2026.pdf";
+            a.href = "/Resume.pdf";
+            a.download = "/Resume.pdf";
             a.click();
           }}
           className="px-6 py-3 bg-emerald-600 dark:bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-md"
@@ -30,7 +30,7 @@ const Resume = () => {
           <ul className="space-y-4 text-gray-700 dark:text-gray-300">
             <li className="space-y-2">
               <p className="font-semibold text-gray-900 dark:text-white">
-                Bachelor of Science in Computer Science + Philosophy
+                Bachelor of Science in Computer Science + Statistics
               </p>
               <p className="text-sm">
                 University of Illinois at Urbana-Champaign
@@ -144,6 +144,7 @@ const Resume = () => {
               <div className="flex flex-wrap gap-2">
                 {[
                   "Java",
+                  "Rust",
                   "C#",
                   "Python",
                   "C++",
@@ -151,7 +152,8 @@ const Resume = () => {
                   "CSS",
                   "JavaScript",
                   "TypeScript",
-                  "Rust",
+                  "R",
+                  "SQL",
                 ].map((lang) => (
                   <span
                     key={lang}
@@ -172,6 +174,8 @@ const Resume = () => {
                   "Unity",
                   "Blender",
                   "Pandas",
+                  "Numpy",
+                  "Node.js",
                   "React",
                   "TailwindCSS",
                   "Scikit-Learn",
@@ -179,8 +183,8 @@ const Resume = () => {
                   "Maven",
                   "Tauri",
                   "Vite",
-                  "Jupyter",
-                  "SQL",
+                  "Jupyter Notebooks",
+                  "SQLite",
                 ].map((tool) => (
                   <span
                     key={tool}
