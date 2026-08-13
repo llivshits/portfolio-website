@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   uref?: string;
+  "aria-label"?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   status = false,
   uref = "",
   onClick,
+  "aria-label": ariaLabel,
 }) => {
   const navigate = useNavigate();
 
@@ -70,9 +72,10 @@ const Button: React.FC<ButtonProps> = ({
       onClick={handleClick}
       target={href ? "_blank" : undefined}
       rel={href ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center gap-2 px-4 py-2 ${className}`}
+      aria-label={ariaLabel}
+      className={`inline-flex items-center gap-2 ${className}`}
     >
-      {icon && <span className="text-xl">{icon}</span>}
+      {icon && <span className="shrink-0 text-[1.15em]">{icon}</span>}
       {text && <span>{text}</span>}
     </a>
   );

@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import Button from "./button";
 import { FaLinkedin, FaGithub, FaRegSun, FaRegMoon } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { SiReaddotcv } from "react-icons/si";
-import { GrProjects } from "react-icons/gr";
 import { HiMenu, HiX } from "react-icons/hi";
 import Toggle from "./toggle";
+
+const navLink =
+  "text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
+
+const iconLink = `p-2 ${navLink}`;
+
+const mobileLink = `w-full rounded-md px-3 py-2.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-900 ${navLink}`;
 
 const Header: React.FC = () => {
   const [theme, setTheme] = useState(() => {
@@ -39,118 +44,125 @@ const Header: React.FC = () => {
   }, [theme]);
 
   return (
-    <div className="w-full px-8 py-5 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-sm sticky top-0 z-50">
-      <div className="flex items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
         <Button
           text="Len Livshits"
           to="/"
           uref="header"
-          className="text-emerald-600 dark:text-emerald-400 text-3xl font-bold hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+          className="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-100"
         />
 
         {/* For desktop and large screens */}
-        <div className="hidden md:flex justify-end items-center gap-2">
-          <Toggle
-            value={theme === "light" ? "left" : "right"}
-            onToggle={(val) => setTheme(val === "left" ? "light" : "dark")}
-            buttonA={<Button icon={<FaRegSun />} />}
-            buttonB={<Button icon={<FaRegMoon />} />}
-          />
-          <Button
-            text="Github"
-            href="https://github.com/llivshits"
-            icon={<FaGithub />}
-            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          />
-          <Button
-            text="LinkedIn"
-            href="https://www.linkedin.com/in/leonard-livshits/"
-            icon={<FaLinkedin />}
-            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          />
-          <Button
-            text="Email"
-            href="mailto:lenliv@gmail.com"
-            icon={<MdEmail />}
-            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          />
+        <nav className="hidden items-center gap-1 text-sm md:flex">
           <Button
             text="Projects"
             to="/"
             uref="projects"
-            icon={<GrProjects />}
-            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className={`px-3 py-2 ${navLink}`}
           />
           <Button
             text="Resume"
             to="/"
             uref="resume"
-            icon={<SiReaddotcv />}
-            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className={`px-3 py-2 ${navLink}`}
           />
-        </div>
+
+          <span
+            aria-hidden="true"
+            className="mx-2 h-4 w-px bg-neutral-200 dark:bg-neutral-800"
+          />
+
+          <Button
+            href="https://github.com/llivshits"
+            icon={<FaGithub />}
+            aria-label="GitHub"
+            className={iconLink}
+          />
+          <Button
+            href="https://www.linkedin.com/in/leonard-livshits/"
+            icon={<FaLinkedin />}
+            aria-label="LinkedIn"
+            className={iconLink}
+          />
+          <Button
+            href="mailto:lenliv@gmail.com"
+            icon={<MdEmail />}
+            aria-label="Email"
+            className={iconLink}
+          />
+
+          <Toggle
+            className="ml-2"
+            value={theme === "light" ? "left" : "right"}
+            onToggle={(val) => setTheme(val === "left" ? "light" : "dark")}
+            buttonA={<Button icon={<FaRegSun />} aria-label="Light mode" />}
+            buttonB={<Button icon={<FaRegMoon />} aria-label="Dark mode" />}
+          />
+        </nav>
 
         {/* For mobile and small desktop screens */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="flex items-center gap-2 md:hidden">
           <Toggle
             value={theme === "light" ? "left" : "right"}
             onToggle={(val) => setTheme(val === "left" ? "light" : "dark")}
-            buttonA={<Button icon={<FaRegSun />} />}
-            buttonB={<Button icon={<FaRegMoon />} />}
+            buttonA={<Button icon={<FaRegSun />} aria-label="Light mode" />}
+            buttonB={<Button icon={<FaRegMoon />} aria-label="Dark mode" />}
           />
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className={`rounded-md ${iconLink}`}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
-            {menuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            {menuOpen ? <HiX size={20} /> : <HiMenu size={20} />}
           </button>
         </div>
       </div>
 
       {/* Menu for mobile and small screens */}
       {menuOpen && (
-        <div className="md:hidden mt-4 flex flex-col gap-2 pb-4 border-t border-gray-200 dark:border-gray-800 pt-4">
-          <Button
-            text="Github"
-            href="https://github.com/llivshits"
-            icon={<FaGithub />}
-            className="w-full px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
-            onClick={() => setMenuOpen(false)}
-          />
-          <Button
-            text="LinkedIn"
-            href="https://www.linkedin.com/in/leonard-livshits/"
-            icon={<FaLinkedin />}
-            className="w-full px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
-            onClick={() => setMenuOpen(false)}
-          />
-          <Button
-            text="Email"
-            href="mailto:lenliv@gmail.com"
-            icon={<MdEmail />}
-            className="w-full px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
-            onClick={() => setMenuOpen(false)}
-          />
-          <Button
-            text="Projects"
-            to="/"
-            uref="projects"
-            icon={<GrProjects />}
-            className="w-full px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
-            onClick={() => setMenuOpen(false)}
-          />
-          <Button
-            text="Resume"
-            to="/"
-            uref="resume"
-            icon={<SiReaddotcv />}
-            className="w-full px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
-            onClick={() => setMenuOpen(false)}
-          />
-        </div>
+        <nav className="mx-auto max-w-3xl border-t border-neutral-200 px-6 py-3 md:hidden dark:border-neutral-800">
+          <div className="flex flex-col">
+            <Button
+              text="Projects"
+              to="/"
+              uref="projects"
+              className={mobileLink}
+              onClick={() => setMenuOpen(false)}
+            />
+            <Button
+              text="Resume"
+              to="/"
+              uref="resume"
+              className={mobileLink}
+              onClick={() => setMenuOpen(false)}
+            />
+            <Button
+              text="GitHub"
+              href="https://github.com/llivshits"
+              icon={<FaGithub />}
+              className={mobileLink}
+              onClick={() => setMenuOpen(false)}
+            />
+            <Button
+              text="LinkedIn"
+              href="https://www.linkedin.com/in/leonard-livshits/"
+              icon={<FaLinkedin />}
+              className={mobileLink}
+              onClick={() => setMenuOpen(false)}
+            />
+            <Button
+              text="Email"
+              href="mailto:lenliv@gmail.com"
+              icon={<MdEmail />}
+              className={mobileLink}
+              onClick={() => setMenuOpen(false)}
+            />
+          </div>
+        </nav>
       )}
-    </div>
+    </header>
   );
 };
 

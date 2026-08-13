@@ -29,8 +29,12 @@ const Toggle: React.FC<ToggleProps> = ({
   const [internalValue, setInternalValue] = useState<ToggleValue>(defaultValue);
   const current = value ?? internalValue;
 
+  const segment = "rounded px-2 py-1.5 text-sm transition-colors";
+  const active = "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900";
+  const inactive =
+    "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
+
   const handleToggle = (next: ToggleValue) => {
-    console.log("handleToggle", { current, next });
     if (current === next) return;
     if (value === undefined) setInternalValue(next);
     onToggle?.(next);
@@ -43,10 +47,7 @@ const Toggle: React.FC<ToggleProps> = ({
       buttonA.props.onClick?.();
       handleToggle("left");
     },
-    className:
-      current === "left"
-        ? `px-4 py-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-medium transition-colors ${classAName}`
-        : `px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${classAName}`,
+    className: `${segment} ${current === "left" ? active : inactive} ${classAName}`,
   });
 
   const B = React.cloneElement<ButtonProps>(buttonB, {
@@ -56,15 +57,12 @@ const Toggle: React.FC<ToggleProps> = ({
       buttonB.props.onClick?.();
       handleToggle("right");
     },
-    className:
-      current === "right"
-        ? `px-4 py-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-medium transition-colors ${classBName}`
-        : `px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${classBName}`,
+    className: `${segment} ${current === "right" ? active : inactive} ${classBName}`,
   });
 
   return (
     <div
-      className={`inline-flex gap-0 rounded-lg border border-gray-200 dark:border-gray-700 p-1 bg-white dark:bg-gray-900 ${className}`}
+      className={`inline-flex rounded-md border border-neutral-200 p-0.5 dark:border-neutral-800 ${className}`}
     >
       {A}
       {B}

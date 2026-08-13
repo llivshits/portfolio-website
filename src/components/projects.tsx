@@ -1,159 +1,72 @@
 import React from "react";
 import Button from "./button";
 
+interface Project {
+  title: string;
+  href?: string;
+  points: string[];
+}
+
+const projects: Project[] = [
+  {
+    title: "Encrypted Chat App",
+    href: "https://github.com/rzheng1232/CS199-128-Final-Project-FA25-",
+    points: [
+      "Created a secure, end to end encrypted, server-based Chat App using Rust for backend message handling and server connection",
+      "Used React, Typescript, HTML, CSS, and TailwindCSS for the frontend and connected frontend to backend using Tauri",
+      "Used Git to manage contributions from a team of 3 people",
+      "Implemented real-time communication, user authentication, and encrypted data storage with SQL",
+    ],
+  },
+  {
+    title: "Dronetrix",
+    points: [
+      "Created a VR game using Unity, Github, Visual Studio, C#, and Blender in a team of 3",
+      "Created game objects and environments, scripted their behaviors, modelled and textured them in Blender",
+      "Assisted in creation of a neural network based movement algorithm for game objects",
+    ],
+  },
+  {
+    title: "Fantasy Premier League Assistant",
+    href: "https://github.com/RohitDatta06/FPLpredict",
+    points: [
+      "Created a website to assist Fantasy Premier League Players in choosing the optimal squad, using machine learning algorithms",
+      "Used React, Typescript, HTML, CSS, and TailwindCSS for the frontend, FastAPI for the backend, and Python for the prediction and optimization algorithms",
+      "Added LLM integration to explain choices the algorithm made",
+      "Used Pandas and Scikit-Learn to import past player data from a .csv file and predict future performance using various algorithms such as XGBoost, Random Forest, Linear Regression, and Lasso",
+    ],
+  },
+];
+
 function Projects() {
   return (
-    <div className="w-full flex flex-col gap-12 text-gray-900 dark:text-gray-50 animate-fadeIn">
-      <h1 className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+    <section id="projects" className="mt-20 border-t border-neutral-200 pt-10 dark:border-neutral-800">
+      <h2 className="text-xs font-medium tracking-[0.14em] text-neutral-500 uppercase dark:text-neutral-400">
         Projects
-      </h1>
+      </h2>
 
-      <div className="space-y-8">
-        {/* Chat App */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-gray-300 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 transition-colors shadow-sm">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Encrypted Chat App
-            </h2>
-            <Button
-              text="View on Github"
-              href="https://github.com/rzheng1232/CS199-128-Final-Project-FA25-"
-              className="px-4 py-2 bg-emerald-600 dark:bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors"
-            />
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Created a secure, end to end encrypted, server-based Chat App
-                  using Rust for backend message handling and server connection
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Used React, Typescript, HTML, CSS, and TailwindCSS for the
-                  frontend and connected frontend to backend using Tauri
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Used Git to manage contributions from a team of 3 people
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Implemented real-time communication, user authentication, and
-                  encrypted data storage with SQL
-                </span>
-              </li>
+      <div className="mt-8 space-y-10">
+        {projects.map((project) => (
+          <article key={project.title}>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 className="text-lg">{project.title}</h3>
+              {project.href && (
+                <Button
+                  text="View on GitHub"
+                  href={project.href}
+                  className="text-sm text-neutral-500 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900 dark:text-neutral-400 dark:decoration-neutral-600 dark:hover:text-neutral-100"
+                />
+              )}
+            </div>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 marker:text-neutral-300 dark:marker:text-neutral-600">
+              {project.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Dronetrix */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-gray-300 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 transition-colors shadow-sm">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Dronetrix
-            </h2>
-
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Created a VR game using Unity, Github, Visual Studio, C#, and
-                  Blender in a team of 3
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Created game objects and environments, scripted their
-                  behaviors, modelled and textured them in Blender
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Assisted in creation of a neural network based movement
-                  algorithm for game objects
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Project 3 */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-gray-300 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 transition-colors shadow-sm">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Fantasy Premier League Assistant
-            </h2>
-            <Button
-              text="View on Github"
-              href="https://github.com/RohitDatta06/FPLpredict"
-              className="px-4 py-2 bg-emerald-600 dark:bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors"
-            />
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Created a website to assist Fantasy Premier League Players in
-                  choosing the optimal squad, using machine learning algorithms
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Used React, Typescript, HTML, CSS, and TailwindCSS for the
-                  frontend, FastAPI for the backend, and Python for the
-                  prediction and optimization algorithms
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Added LLM integration to explain choices the algorithm made
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  •
-                </span>
-                <span>
-                  Used Pandas and Scikit-Learn to import past player data from a
-                  .csv file and predict future performance using various
-                  algorithms such as XGBoost, Random Forest, Linear Regression,
-                  and Lasso
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 
