@@ -26,10 +26,6 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const navigate = useNavigate();
 
-  // mailto: and tel: are handed off to an external handler, so opening them in
-  // a new tab just strands a blank one. Only web URLs get target="_blank".
-  const opensInNewTab = /^https?:\/\//i.test(href);
-
   const scroll = (elementId: string): boolean => {
     const element = document.getElementById(elementId);
     if (element) {
@@ -74,8 +70,8 @@ const Button: React.FC<ButtonProps> = ({
     <a
       href={href || to || "#"}
       onClick={handleClick}
-      target={opensInNewTab ? "_blank" : undefined}
-      rel={opensInNewTab ? "noopener noreferrer" : undefined}
+      target={href ? "_blank" : undefined}
+      rel={href ? "noopener noreferrer" : undefined}
       aria-label={ariaLabel}
       className={`inline-flex items-center gap-2 ${className}`}
     >

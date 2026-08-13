@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Button from "./button";
 import { FaLinkedin, FaGithub, FaRegSun, FaRegMoon } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
 import Toggle from "./toggle";
+import EmailButton from "./emailbutton";
 
 const navLink =
   "text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100";
@@ -85,12 +85,7 @@ const Header: React.FC = () => {
             aria-label="LinkedIn"
             className={iconLink}
           />
-          <Button
-            href="mailto:lenliv@gmail.com"
-            icon={<MdEmail />}
-            aria-label="Email"
-            className={iconLink}
-          />
+          <EmailButton className={iconLink} />
 
           <Toggle
             className="ml-2"
@@ -152,13 +147,7 @@ const Header: React.FC = () => {
               className={mobileLink}
               onClick={() => setMenuOpen(false)}
             />
-            <Button
-              text="Email"
-              href="mailto:lenliv@gmail.com"
-              icon={<MdEmail />}
-              className={mobileLink}
-              onClick={() => setMenuOpen(false)}
-            />
+            <EmailButton text="Email" className={mobileLink} />
           </div>
         </nav>
       )}
