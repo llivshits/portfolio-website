@@ -45,7 +45,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-6 py-4 lg:max-w-5xl lg:px-8 2xl:max-w-6xl">
         <Button
           text="Len Livshits"
           to="/"
@@ -122,7 +122,7 @@ const Header: React.FC = () => {
 
       {/* Menu for mobile and small screens */}
       {menuOpen && (
-        <nav className="mx-auto max-w-3xl border-t border-neutral-200 px-6 py-3 md:hidden dark:border-neutral-800">
+        <nav className="mx-auto max-w-3xl border-t border-neutral-200 px-6 py-3 md:hidden lg:max-w-5xl lg:px-8 dark:border-neutral-800">
           <div className="flex flex-col">
             <Button
               text="Projects"

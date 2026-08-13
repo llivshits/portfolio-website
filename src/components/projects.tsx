@@ -1,51 +1,60 @@
 import React from "react";
 import Button from "./button";
+import Section from "./section";
 
 interface Project {
   title: string;
   href?: string;
+  stack: string;
+  dates: string;
   points: string[];
 }
 
 const projects: Project[] = [
   {
-    title: "Encrypted Chat App",
+    title: "IlliniChat",
     href: "https://github.com/rzheng1232/CS199-128-Final-Project-FA25-",
+    stack: "Rust, TypeScript, React, SQLite, Tauri",
+    dates: "Oct. 2025 – Dec. 2025",
     points: [
-      "Created a secure, end to end encrypted, server-based Chat App using Rust for backend message handling and server connection",
-      "Used React, Typescript, HTML, CSS, and TailwindCSS for the frontend and connected frontend to backend using Tauri",
-      "Used Git to manage contributions from a team of 3 people",
-      "Implemented real-time communication, user authentication, and encrypted data storage with SQL",
-    ],
-  },
-  {
-    title: "Dronetrix",
-    points: [
-      "Created a VR game using Unity, Github, Visual Studio, C#, and Blender in a team of 3",
-      "Created game objects and environments, scripted their behaviors, modelled and textured them in Blender",
-      "Assisted in creation of a neural network based movement algorithm for game objects",
+      "Built a secure, RSA-encrypted, server-based chat app using Rust for backend message handling and server connection, with data storage in SQLite",
+      "Bridged a React, TypeScript, HTML, CSS, and TailwindCSS frontend to the Rust core via Tauri; shipped macOS, Windows, and Linux builds",
+      "Implemented real-time communication, user authentication, and encrypted data storage",
+      "Co-led a 3-person team using Git feature branches and PR review",
     ],
   },
   {
     title: "Fantasy Premier League Assistant",
     href: "https://github.com/RohitDatta06/FPLpredict",
+    stack: "Python, Jupyter Notebooks, Pandas, Scikit-Learn",
+    dates: "Sep. 2025 – Dec. 2025",
     points: [
-      "Created a website to assist Fantasy Premier League Players in choosing the optimal squad, using machine learning algorithms",
-      "Used React, Typescript, HTML, CSS, and TailwindCSS for the frontend, FastAPI for the backend, and Python for the prediction and optimization algorithms",
+      "Built a squad optimizer selecting the highest-projected lineup under FPL's budget, position, and club constraints",
+      "Served predictions through a FastAPI backend to a React, TypeScript, and TailwindCSS frontend",
+      "Benchmarked XGBoost, Random Forest, Lasso, and linear regression on historical player data imported from .csv with Pandas and Scikit-Learn",
       "Added LLM integration to explain choices the algorithm made",
-      "Used Pandas and Scikit-Learn to import past player data from a .csv file and predict future performance using various algorithms such as XGBoost, Random Forest, Linear Regression, and Lasso",
+    ],
+  },
+  {
+    title: "Dronetrix",
+    stack: "C#, Unity, Blender, Git",
+    dates: "Jan. 2025 – Sep. 2025",
+    points: [
+      "Created a VR game using Unity, GitHub, Visual Studio, C#, and Blender in a team of 3",
+      "Created game objects and environments, scripted their behaviors, modeled and textured them in Blender",
+      "Co-developed a neural-network-based movement algorithm for game objects",
     ],
   },
 ];
 
 function Projects() {
   return (
-    <section id="projects" className="mt-20 border-t border-neutral-200 pt-10 dark:border-neutral-800">
-      <h2 className="text-xs font-medium tracking-[0.14em] text-neutral-500 uppercase dark:text-neutral-400">
-        Projects
-      </h2>
-
-      <div className="mt-8 space-y-10">
+    <Section
+      id="projects"
+      label="Projects"
+      className="mt-20 border-t border-neutral-200 pt-10 lg:mt-24 lg:pt-12 dark:border-neutral-800"
+    >
+      <div className="max-w-[72ch] space-y-10">
         {projects.map((project) => (
           <article key={project.title}>
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -58,6 +67,11 @@ function Projects() {
                 />
               )}
             </div>
+            <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+              {project.stack}
+              <span aria-hidden="true"> · </span>
+              {project.dates}
+            </p>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 marker:text-neutral-300 dark:marker:text-neutral-600">
               {project.points.map((point) => (
                 <li key={point}>{point}</li>
@@ -66,7 +80,7 @@ function Projects() {
           </article>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
 

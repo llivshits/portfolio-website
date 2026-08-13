@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./button";
+import Section from "./section";
 
 interface EntryProps {
   title: string;
@@ -38,7 +39,7 @@ const Subsection: React.FC<{ title: string; children: React.ReactNode }> = ({
   children,
 }) => (
   <div>
-    <h3 className="border-b border-neutral-200 pb-2 text-base dark:border-neutral-800">
+    <h3 className="border-b border-neutral-200 pb-2 text-base lg:text-lg dark:border-neutral-800">
       {title}
     </h3>
     {children}
@@ -47,52 +48,56 @@ const Subsection: React.FC<{ title: string; children: React.ReactNode }> = ({
 
 const languages = [
   "Java",
+  "Python",
   "Rust",
   "C#",
-  "Python",
+  "C",
   "C++",
-  "HTML",
-  "CSS",
   "JavaScript",
   "TypeScript",
+  "HTML",
+  "CSS",
   "R",
   "SQL",
 ];
 
 const tools = [
+  "React",
+  "Node.js",
   "Git",
   "Unity",
   "Blender",
-  "Pandas",
-  "Numpy",
-  "Node.js",
-  "React",
-  "TailwindCSS",
-  "Scikit-Learn",
-  "Matplotlib",
-  "Maven",
   "Tauri",
   "Vite",
   "Jupyter Notebooks",
   "SQLite",
+  "Docker",
+  "Maven",
+];
+
+const libraries = [
+  "Pandas",
+  "NumPy",
+  "PyTorch",
+  "Matplotlib",
+  "Scikit-Learn",
+  "TailwindCSS",
+  "FastAPI",
 ];
 
 const spokenLanguages = [
-  "English (Fluent)",
-  "Russian (Fluent)",
+  "English (Native)",
+  "Russian (Native)",
   "Spanish (Proficient)",
 ];
 
 const Resume = () => {
   return (
-    <section
+    <Section
       id="resume"
-      className="mt-20 border-t border-neutral-200 pt-10 pb-8 dark:border-neutral-800"
-    >
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <h2 className="text-xs font-medium tracking-[0.14em] text-neutral-500 uppercase dark:text-neutral-400">
-          Resume
-        </h2>
+      label="Resume"
+      className="mt-20 border-t border-neutral-200 pt-10 pb-8 lg:mt-24 lg:pt-12 dark:border-neutral-800"
+      aside={
         <Button
           text="Download PDF"
           onClick={() => {
@@ -103,19 +108,19 @@ const Resume = () => {
           }}
           className="rounded-md border border-neutral-300 px-3 py-1.5 text-sm text-neutral-700 transition-colors hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-neutral-500 dark:hover:text-neutral-100"
         />
-      </div>
-
-      <div className="mt-8 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+      }
+    >
+      <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:gap-x-16">
         {/*Education*/}
         <Subsection title="Education">
           <ul className="mt-4 space-y-5">
             <Entry
               title="Bachelor of Science in Computer Science + Statistics"
-              org="University of Illinois at Urbana-Champaign"
-              dates="Started Fall 2025, Expected Graduation May 2027"
+              org="University of Illinois Urbana-Champaign, Urbana/Champaign, IL"
+              dates="Aug. 2025 – May 2028 (Expected)"
               meta={[
                 "GPA: 3.67/4.00",
-                "Related Coursework: Data Structures, Computer Architecture, Statistics and Probability, Linear Algebra",
+                "Relevant coursework: Data Structures (C++), Computer Architecture (C), Statistics (R), Linear Algebra (Python), Database Systems (SQL), Algorithms and Models of Computation",
               ]}
             />
             <Entry
@@ -131,29 +136,39 @@ const Resume = () => {
         <Subsection title="Work Experience">
           <ul className="mt-4 space-y-5">
             <Entry
-              title="Course Assistant - CS128H (Rust)"
-              org="University of Illinois, Champaign-Urbana"
-              dates="January 2026 - Present"
+              title="Research Assistant - MARTIANS Lab (Syed Bahauddin Alam, PhD)"
+              org="University of Illinois Urbana-Champaign, Dept. of Nuclear, Plasma & Radiological Engineering, Urbana, IL"
+              dates="May 2026 – Present"
               points={[
-                "Held weekly office hours to assist 40+ students in learning Rust, focusing on concepts such as borrowing, ownership, and multithreading",
-                "Maintained course website, featuring up to date information on course policies and instructional videos",
-                "Mentored students in developing a Rust-based final project",
+                "Build DeepONets and Fourier Neural Operators in PyTorch to predict reactor temperature fields from 75K samples",
+                "Build an autoregressive inference pipeline forecasting 100 time steps from a single initial condition, achieving 3.9% relative L2 validation error with a 2.4M-parameter 2D Fourier Neural Operator",
+                "Design 10-step sliding-window training scheme, cutting 100-step rollout error 83% vs. single-step training",
+              ]}
+            />
+            <Entry
+              title="Course Assistant - CS128 Honors (Rust)"
+              org="University of Illinois Urbana-Champaign, Urbana/Champaign, IL"
+              dates="Jan. 2026 – Present"
+              points={[
+                "Hold weekly office hours for 40+ students on Rust ownership, borrowing, and multithreading",
+                "Maintain course website, featuring up-to-date information on course policies and instructional videos",
+                "Mentor students in developing a Rust-based final project",
               ]}
             />
             <Entry
               title="Certified Trainer"
-              org="Potbelly Sandwich Shop"
-              dates="February 2023 - Present"
+              org="Potbelly Sandwich Shop, Champaign, IL & Northbrook, IL"
+              dates="Mar. 2023 – Jul. 2026"
               points={[
-                "Trained 15 new employees in front and back of house duties",
-                "Handling transactions and customer service, maintaining high satisfaction",
-                "Expediting and preparing orders during rush hours",
+                "Trained 15+ new employees on food safety and store operations across two locations, covering both front and back of house duties",
+                "Handled transactions and customer service, maintaining high satisfaction",
+                "Expedited and prepared orders during rush hours",
               ]}
             />
             <Entry
               title="Team Member"
               org="McDonald's"
-              dates="August 2021 - February 2023"
+              dates="Aug. 2021 – Feb. 2023"
               points={[
                 "Mentored 4 employees new to the service industry",
                 "Processed transactions at 6 different Point of Sales during peak hours",
@@ -178,6 +193,12 @@ const Resume = () => {
             </div>
             <div>
               <dt className="text-neutral-500 dark:text-neutral-400">
+                Libraries
+              </dt>
+              <dd className="mt-1">{libraries.join(", ")}</dd>
+            </div>
+            <div>
+              <dt className="text-neutral-500 dark:text-neutral-400">
                 Languages
               </dt>
               <dd className="mt-1">{spokenLanguages.join(", ")}</dd>
@@ -185,37 +206,33 @@ const Resume = () => {
           </dl>
         </Subsection>
 
-        {/*Leadership*/}
-        <Subsection title="Leadership">
+        {/*Extracurriculars and Leadership*/}
+        <Subsection title="Extracurriculars and Leadership">
           <ul className="mt-4 space-y-5">
             <Entry
-              title="Member, UIUC SigAIDA"
-              dates="August 2025 - Present"
+              title="Brother, Delta Kappa Epsilon Fraternity"
+              dates="May 2026 – Present"
+            />
+            <Entry
+              title="Full-Stack Software Engineer, Reflections | Projections"
+              dates="Feb. 2026 – Present"
               points={[
+                "Develop and maintain various software systems for the Midwest's largest student-run tech conference",
+                "Engineered a new Magic-Links based login system to increase security and ease of use for conference attendees",
+              ]}
+            />
+            <Entry
+              title="Project Lead, ACM SigAIDA (Special Interest Group for AI and Data Analytics)"
+              dates="Aug. 2025 – May 2026"
+              points={[
+                "Lead semester-long group projects implementing AI and ML",
                 "Participate in weekly Machine Learning and AI code puzzles in Python",
-                "Work on semester-long group projects implementing AI and ML",
-              ]}
-            />
-            <Entry
-              title="Founder and President, GBN Slavic Cultures Club"
-              dates="August 2022 - May 2025"
-              points={[
-                "Grew club attendance from 0 to 50 members",
-                "Fundraised funds for humanitarian aid in Ukraine",
-              ]}
-            />
-            <Entry
-              title="Vice President, GBN Coding Club"
-              dates="August 2024 - May 2025"
-              points={[
-                "Taught Python and HTML skills to 30 club members",
-                "Organized foundations for a multi-day hackathon",
               ]}
             />
           </ul>
         </Subsection>
       </div>
-    </section>
+    </Section>
   );
 };
 
