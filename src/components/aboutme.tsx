@@ -24,7 +24,7 @@ function Aboutme() {
         </p>
         <p>
           I have a strong interest in machine learning and software development,
-          and I am looking to pursue an internship or coop in the field of
+          and I am looking to pursue an internship or co-op in the field of
           machine learning engineering, data science, or software development.
         </p>
       </div>
